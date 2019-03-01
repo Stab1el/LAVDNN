@@ -10,11 +10,12 @@ LAVDNN is designed based on deep neural networks to classify the benign function
 
 ## Requirements
 
-- Keras 2.2.4
-- Python 3.5
-- scikit-learn
+- [Keras 2.2.4](https://github.com/keras-team/keras/tree/master/keras)
+- Python 3.5.4
+- [scikit-learn](https://scikit-learn.org/stable/)
 
-The dependecies could be installed with `Anaconda`. For example:
+The dependecies could be installed with [`Anaconda`](https://www.anaconda.com/distribution/). For example:
+
 ```
 $ bash Anaconda3-5.0.1-Linux-x86_64.sh
 
@@ -27,15 +28,21 @@ $ bash Anaconda3-5.0.1-Linux-x86_64.sh
 The `Code` contains the following files:
 
    - `train.py`
+   
+This file introduces training method of LAVDNN. You could use it for train your own model. If you would like just use the model we provide, this file could be ignored.
    - `FunExtractor.py`
+    
+This file is used to automatically extract functions in target programs.
    - `Vectorazation.py`
+   
+This file is one-hot encoding method to vectorize the input.
    - `Predict_Vul.py`
+
+This file is used to predict the vulnerable functions, the output is vulnerable function names and related weak probabilities.
 
 2. `Data`
 
-The `Data` folder contains two subolders:
-   - `validation_data`
-   - `test_data`
+The `Data` folder contains the subolders `test_data`, which contains two files `FFmpeg-0.6.txt` and `LibTIFF-4.0.6.txt`. Which stores the extracted function names of two programs. These two files could be used to test the performance of LAVDNN.
 
 3. `Model`
 
@@ -45,10 +52,19 @@ The `Model` folder contains a well-trained model and a detailed description of t
 
 This part introduces the usage of LAVDNN. To use LAVDNN, you first need function names of source code to be your dataset, which will be performed by `FunExtractor.py`. 
 
-### Verifying
-
 We provide the validation data for you to verify the performance of LAVDNN in `Data\validation_data\`. We also provide a well-trained model in `Model\model_of_BLSTM`. You could load model and leverage validation_data to verify the accuracy.
+
+### Train 
+
+If you want to build and train the model, you could use `train.py`. But traing data is needed firstly, which is not provided in this project.
 
 ### Test
 
-If you want to test the performance of LAVDNN, we provide the test data in `Data\teat_data\`. We use FFmpeg 0.6 and LibTIFF 4.0.6 as test programs to 
+If you want to test the performance of LAVDNN, we provide the test data in `Data\teat_data\`. We select FFmpeg 0.6 and LibTIFF 4.0.6 as test programs for test as they have been tested by many programs. 
+
+We also provide a well-trained model in `Model\model_of_BLSTM`. You could load model and leverage test data to test the accuracy.
+
+For example
+```
+python Predict_Vul.py  ../Data/test_data/FFmpeg-0.6.txt
+```
