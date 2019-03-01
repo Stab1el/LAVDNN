@@ -35,6 +35,9 @@ This file is one-hot encoding method to vectorize the input.
    - `Predict_Vul.py`
 
 This file is used to predict the vulnerable functions, the output is vulnerable function names and related weak probabilities.
+   - `modelA_softmax` `modelA_sigmoid``modelB_softmax` `modelB_softmax`
+
+These four files are model construction method,  you could leverage any of them to build model. 
 
 2. `Data`
 
