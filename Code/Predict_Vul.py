@@ -13,22 +13,16 @@ from keras.models import load_model
 import keras
 import os
 import time
-import openpyxl
-from openpyxl.workbook import *
 import datetime
-from vectorization import *
+from Vectorization import *
 
 
 # Parameters for the model and dataset.
 DIGITS = 50
 InputChar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890.- '
 
-
-
 ##--------------------------read data ------------------------
-
-f= open('final_test\ExtraFFmpeg.txt','r')
-#f= open('LIBTIFF.txt','r')
+f= open('..\\Data\\test_data\\FFmpeg-0.6.txt','r')   # Read data from txt file, you could select the praograms as you like
 
 data=f.read()
 rows=data.split('\n')
@@ -54,36 +48,19 @@ for j, sentence in enumerate(no_questions):
     vec_word[j] = ctableInput.encode(sentence, DIGITS)
 
 ##----------------Prediction with model --------------------------------
-model_info='F:\LSTM_TEST\model\good_model\model_2018_12_27_round_50'
-model_info='F:\LSTM_TEST\model\good_model\model_2018_12_27_round_49'
+model_info='..\\Model\\model_of_BLSTM'   # The well-trained model we provide
 model = load_model(model_info)
-print('Predict model...')
-print (model_info)
+print('Predict vulnerable functions...')
 #preds_class_no=model.predict_classes(vec_word)
 preds=model.predict(vec_word)
 
-
-
-
-
 ## ----------------- output -----------------------------------
-outwb = Workbook()
-wo = outwb.active
-careerSheet = outwb.create_sheet('record',0)
-
-for i in range(1,len(preds)):
-    a="{0:.10f}".format(preds[i-1][0])
-    careerSheet.cell(row=i,column=1).value = a
-    careerSheet.cell(row=i,column=2).value = no_questions[i-1]
-
-outwb.save("ExtraFFmpeg_test.xlsx")
-
-'''
 count_num=0
 for i in range(1,len(preds)):
-    if preds[i][0]>0.85:
+    if preds[i][0]>0.55:
         print (no_questions[i],preds[i][0])
         count_num=count_num+1
-print (count_num)
-'''
+print("------------------------------------------------------------")
+print ("The amount of vulnerble functions are",count_num)
+
 

@@ -2,8 +2,10 @@
 
 import os
 import re
+import sys
 dict=[]
-root_dir = "F:\\LSTM_TEST\\final_test\\libtiff-master"
+root_dir = sys.argv[1]    # The folder of target programs
+out_putfile=sys.argv[2]   # The output file
 
 for dirpath,dirnames,filenames in os.walk(root_dir):
     for filepath in filenames:
@@ -46,7 +48,7 @@ for dirpath,dirnames,filenames in os.walk(root_dir):
                                                 dict.append(func)
             f.close()
 
-with open("F:\\LSTM_TEST\\final_test\\LIBTIFF2.txt",'w') as f:
+with open(out_putfile,'w') as f:
     for line in dict:
         f.write(line)
         f.write('\n')
