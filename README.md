@@ -14,12 +14,8 @@ LAVDNN is designed based on deep neural networks to classify the benign function
 - Python 3.5.4
 - [scikit-learn](https://scikit-learn.org/stable/)
 
-The dependecies could be installed with [`Anaconda`](https://www.anaconda.com/distribution/). For example:
+The dependecies could be installed with [`Anaconda`](https://www.anaconda.com/distribution/) (Anaconda3-4.1.6 is recommend). 
 
-```
-$ bash Anaconda3-5.0.1-Linux-x86_64.sh
-
-```
 
 ## Project Structure
 
@@ -65,6 +61,7 @@ If you want to test the performance of LAVDNN, we provide the test data in `Data
 We also provide a well-trained model in `Model\model_of_BLSTM`. You could load model and leverage test data to test the accuracy.
 
 For example
+
 ```
 python Predict_Vul.py  ../Data/test_data/FFmpeg-0.6.txt
 ```
