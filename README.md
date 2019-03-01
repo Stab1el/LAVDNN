@@ -35,13 +35,15 @@ This file is one-hot encoding method to vectorize the input.
    - `Predict_Vul.py`
 
 This file is used to predict the vulnerable functions, the output is vulnerable function names and related weak probabilities.
-   - `modelA_softmax` `modelA_sigmoid``modelB_softmax` `modelB_softmax`
+   - `modelA_softmax`  `modelA_sigmoid` `modelB_softmax` `modelB_softmax`
 
 These four files are model construction method,  you could leverage any of them to build model. 
 
 2. `Data`
 
 The `Data` folder contains the subolders `test_data`, which contains two files `FFmpeg-0.6.txt` and `LibTIFF-4.0.6.txt`. Which stores the extracted function names of two programs. These two files could be used to test the performance of LAVDNN.
+
+The  `Data` folder also contains `training_data`, which provides sample of training data. But the amount of sample training data is too small to support for training the model. 
 
 3. `Model`
 
