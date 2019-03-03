@@ -27,7 +27,7 @@ class SenseModel(object):
             self.model.add(Bidirectional(layers.LSTM(self.lstmunits, return_sequences=True,activation='elu',dropout=0.25)))
         self.model.add(Bidirectional(layers.LSTM(self.lstmunits)))
         self.model.add(Dense(2,activation='softmax'))
-        self.model.compile(loss='categorical_crossentropy',optimizer='adam')
+        self.model.compile(loss='binary_crossentropy',optimizer='adam')
         self.model.summary()
 
     def trainModel(self,x,y,allround,epoch,batchsize,savename):

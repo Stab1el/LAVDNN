@@ -33,7 +33,7 @@ class SenseModel(object):
         self.model.add(Bidirectional(layers.LSTM(self.lstmunits)))
         self.model.add(Dense(2,activation='sigmoid'))
       #  self.model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-        self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+        self.model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
         self.model.summary()
 
 
