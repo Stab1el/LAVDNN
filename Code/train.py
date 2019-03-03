@@ -27,7 +27,7 @@ ctableInput = CharacterTable(InputChar)
 lstmunits=240
 DenseUnits=150
 lstmLayerNum=2
-BATCH_SIZE = 128
+BATCH_SIZE = 64
 allround=60
 epoch=5
 charlenth=len(InputChar)
@@ -44,8 +44,6 @@ for row in rows:
     data=row.replace(';','')
     data_row.append(data)
 for row in data_row:
-    if not ':' in row:
-        print (row)
     data=row.split(':')[0]
     full_data.append(data)
 f.close()
@@ -58,14 +56,15 @@ for row in rows:
     data=row.replace(';','')
     full_data_2.append(data)   #full_data_2是没有漏洞函数
 f.close()
-'''
+
+
 f=open('..\\Data\\training_data\\random_data.txt','r')
 lines=f.readlines()
 for line in lines:
        data=line.replace('\n','')
        full_data_2.append(data)
 f.close()
-'''
+
 
 # ---------------------add items to array------------------------
 questions = []
@@ -119,13 +118,9 @@ y_train=np.concatenate((y,y_2),axis=0)
 
 indices=np.arange(len(x_train))
 np.random.shuffle(indices)
-print (indices)
 x_train=x_train[indices]
 y_train=y_train[indices]
 
-print('Training Data:')
-print(x_train.shape)
-print(y_train.shape)
 
 #-------------------------------------Build model and traning-----------------------------
 print('Build model...')
