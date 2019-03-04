@@ -16,13 +16,14 @@ import time
 import datetime
 from Vectorization import *
 
+file_name = sys.argv[1]
 
 # Parameters for the model and dataset.
 DIGITS = 50
 InputChar = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890.- '
 
 ##--------------------------read data ------------------------
-f= open('..\\Data\\test_data\\FFmpeg-0.6.txt','r')   # Read data from txt file, you could select the praograms as you like
+f= open(file_name,'r')   # Read data from txt file, you could select the praograms as you like
 
 data=f.read()
 rows=data.split('\n')
@@ -48,7 +49,7 @@ for j, sentence in enumerate(no_questions):
     vec_word[j] = ctableInput.encode(sentence, DIGITS)
 
 ##----------------Prediction with model --------------------------------
-model_info='..\\Model\\model_of_BLSTM'   # The well-trained model we provide
+model_info='..\\Model\\model_of_LAVDNN'   # The well-trained model we provide
 model = load_model(model_info)
 print('Predict vulnerable functions...')
 #preds_class_no=model.predict_classes(vec_word)
