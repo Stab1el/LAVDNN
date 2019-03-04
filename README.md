@@ -10,12 +10,14 @@ LAVDNN is designed based on deep neural networks to classify the benign function
 ## Requirements
 
 - [Keras 2.2.4](https://github.com/keras-team/keras/tree/master/keras)
-- Python 3.5.4
+- Python >= 3.5
+- [cntk](https://github.com/Microsoft/CNTK/wiki/CNTK-Binary-Download-and-Configuration)
+- matplotlib
 
 The dependecies could be installed with [`Anaconda`](https://www.anaconda.com/distribution/) (Anaconda3 is recommend). You could build the environment with conda virtual environment.
 
 ```
-conda create --name <your_environment_name> python=3.5
+conda create --name <your_environment_name> python=3.6
 activate <your_environment_name>
 ```
 In virtual environment, you could use `pip` for other installations.
@@ -24,6 +26,11 @@ In virtual environment, you could use `pip` for other installations.
 pip install keras
 ```
 
+`cntk` is used as backend of `keras`. We prefer `cntk` rather than `tensorflow` as `cntk` is more effective and simple. You could select proper version of `cntk` according to your python version. For example
+
+```
+pip install https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.6-cp36-cp36m-win_amd64.whl
+```
 
 ## Project Structure
 
@@ -79,6 +86,10 @@ We provide the sample of training data for users in `Data\training_data\`. We al
 ### Train 
 
 If you want to build and train the model, you could use `train.py`. But plenty of traing data is needed firstly, which is not provided in this project.
+
+```
+python train.py
+```
 
 ### Test
 
