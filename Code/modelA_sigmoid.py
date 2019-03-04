@@ -39,7 +39,7 @@ class SenseModel(object):
             print('------------------------------current round is  ', cur + 1,'--------------------------------------------------')
             log=self.model.fit(x, y, batch_size=batchsize, epochs=epoch)
             mdname = savename + '_round_' + str(cur + 1)
-            self.model.save('F:\\LSTM_TEST\\model\\12-27-4\\' + mdname)
+            self.model.save('..\\Model\\' + mdname)
 
 if __name__ =="__main__":
     a = SenseModel(20,20,1,20,100,200)

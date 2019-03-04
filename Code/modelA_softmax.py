@@ -36,7 +36,7 @@ class SenseModel(object):
             self.model.fit(x, y,batch_size=batchsize,epochs=epoch)
  #           if ((cur+1) >=100)&((cur+1) %100==0):
             mdname=savename+'_round_'+str(cur+1)
-            self.model.save('F:\\LSTM_TEST\\model\\9-12-3\\' + mdname)
+            self.model.save('..\\Model\\' + mdname)
 
 if __name__ =="__main__":
     a = SenseModel(20,20,1,20,100,200)

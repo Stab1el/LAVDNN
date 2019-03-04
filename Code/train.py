@@ -58,7 +58,7 @@ for row in rows:
 f.close()
 
 
-f=open('..\\Data\\training_data\\random_data.txt','r')
+f=open('..\\Data\\training_data\\noise_data.txt','r')
 lines=f.readlines()
 for line in lines:
        data=line.replace('\n','')
