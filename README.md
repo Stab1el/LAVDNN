@@ -56,7 +56,7 @@ This file is used to predict the vulnerable functions with trained model. The ou
 
 - `ModelA_sigmoid` `ModelA_softmax` `ModelB_sigmoid` `ModelB_softmax`
 
-These four files are four kinds of defferent construction method of neural networks. We research two different network structures with two different activation functions. In our experiment, we prefer ModelB with sigmoid functions for coustructing networks.
+These four files are four kinds of defferent construction methods of neural networks. We research two different network structures with two different activation functions. In our experiment, we prefer ModelB with sigmoid functions for coustructing networks.
 
 2. `Data`
 
